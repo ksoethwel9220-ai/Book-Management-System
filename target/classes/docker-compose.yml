@@ -1,10 +1,10 @@
 services:
   db:
-    image: postgres:17.6-alpine        
+    image: postgres:17.6-alpine
     environment:
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: screatdb
-      POSTGRES_DB: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secretdb
+      POSTGRES_DB: book
     ports:
       - "5432:5432"
 

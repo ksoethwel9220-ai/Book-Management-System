@@ -1,6 +1,25 @@
-package Entity;
+package App;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "book")
 public class Books {
+	@Id
+	@SequenceGenerator(
+			name = "book_sequence",
+			sequenceName = "book_sequence",
+			allocationSize = 1
+			)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "book_sequence"
+			)
 	private Long id;
 	private String name;
 	private double price;
@@ -10,6 +29,16 @@ public class Books {
 		
 	}
 	
+	public Books(Long id, String name, double price, Long quantity) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
+
+
 	public Books(String name, double price, Long quantity) {
 		super();
 		this.name = name;
